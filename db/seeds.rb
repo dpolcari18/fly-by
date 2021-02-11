@@ -23,8 +23,8 @@ employee1 = Employee.create(airline_id: airline1.id, name: "Sara", username: "Sa
 employee2 = Employee.create(airline_id: airline2.id, name: "Robert", username: "Rober12", password: "password")
 
 
-flight1 = Flight.create(airline_id: airline1.id, origin: "Austin", destination: "Washington DC", departure: Time.now.to_datetime, arrival: (Time.now.to_datetime + 2), price: 100.00, number_of_seats: 40)
-flight2 = Flight.create(airline_id: airline2.id, origin: "Houston", destination: "Seattle", departure: Time.now.to_datetime, arrival: (Time.now.to_datetime + 5), price: 200.00, number_of_seats: 40)
+flight1 = Flight.create(flight_no: "UA101", airline_id: airline1.id, origin: "Austin", destination: "Washington DC", departure: Time.now.to_datetime, arrival: (Time.now.to_datetime + 2), price: 100.00, number_of_seats: 40)
+flight2 = Flight.create(flight_no: "DL323", airline_id: airline2.id, origin: "Houston", destination: "Seattle", departure: Time.now.to_datetime, arrival: (Time.now.to_datetime + 5), price: 200.00, number_of_seats: 40)
 
 
 

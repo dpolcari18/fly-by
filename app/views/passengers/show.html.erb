@@ -1,0 +1,31 @@
+
+<h2> Welcome <%=@passenger.first_name %> <%= @passenger.last_name %> </h2>
+
+<h3> Here are your upcoming flights: </h3>
+
+<table>
+    <tr>
+        <th>Airline</th>
+        <th>Flight Number</th>
+        <th>Origin</th>
+        <th>Departure Date</th>
+        <th>Time</th>
+        <th>Destination</th>
+        <th>Arrival Date</th>
+        <th>Time</th>
+    </tr>
+    <% @passenger.flights.each do |flight| %>
+        <tr>
+            <td><%= flight.airline.name %></td>
+            <td><%= flight.flight_no %></td>
+            <td><%= flight.origin %></td>
+            <td><%= flight.departure.strftime("%m/%d/%y") %></td>
+            <td><%= flight.departure.strftime("%I:%M:%S %p") %></td>
+            <td><%= flight.destination %></td>
+            <td><%= flight.arrival.strftime("%m/%d/%y") %></td>
+            <td><%= flight.arrival.strftime("%I:%M:%S %p") %></td>
+        </tr>
+    <% end %>
+</table>
+
+
