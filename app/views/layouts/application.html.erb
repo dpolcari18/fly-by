@@ -11,7 +11,11 @@
 
   <body>
     <header>
-      <%= link_to "Home", '/' %> - <%= link_to "Flights", flights_path %>
+      <% if session[:passenger_id] != nil %>
+        <%= link_to "Home", passenger_path(session[:passenger_id]) %> - <%= link_to "Flights", flights_path %> 
+      <% else %>
+        <%= link_to "Home", '/' %> - <%= link_to "Flights", flights_path %> - <%= link_to "Login", '/' %>
+      <% end %>
     </header>
     <%= yield %>
   </body>

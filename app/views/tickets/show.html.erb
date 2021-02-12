@@ -1,5 +1,9 @@
 <h1>Ticket Details</h1>
 
+<% if flash[:update]%>
+    <h4> <%= flash[:update] %></h4>
+<% end %>
+
 <ul>
     <li>Passenger: <%= @ticket.passenger.full_name%></li>
     <li>Airline: <%= @ticket.flight.airline.name%></li>
@@ -9,4 +13,5 @@
     <li>Departure: <%= @ticket.flight.departure.strftime("%m/%d/%y - %I:%M:%S %p")%></li>
     <li>Destination: <%= @ticket.flight.destination%></li>
     <li>Arrival: <%= @ticket.flight.arrival.strftime("%m/%d/%y - %I:%M:%S %p")%></li>
+    <li>Price: $<%= @ticket.flight.price %></li>
 </ul>

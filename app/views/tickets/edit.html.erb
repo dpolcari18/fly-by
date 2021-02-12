@@ -1,5 +1,35 @@
 <h1>Change Ticket</h1>
 
+<table>
+    <tr>
+        <th>Flight No.</th>
+        <th>Origin</th>
+        <th>Departure Date</th>
+        <th>Time</th>
+        <th>Destination</th>
+        <th>Arrival Date</th>
+        <th>Time</th>
+        <th>Price</th>
+        <th>Remaining Seats</th>
+    </tr>
+    <% Flight.all.each do |flight| %>
+        <tr>
+            <td><%= flight.flight_no %></td>
+            <td><%= flight.origin %></td>
+            <td><%= flight.departure.strftime("%m/%d/%y") %></td>
+            <td><%= flight.departure.strftime("%I:%M:%S %p") %></td>
+            <td><%= flight.destination %></td>
+            <td><%= flight.arrival.strftime("%m/%d/%y") %></td>
+            <td><%= flight.arrival.strftime("%I:%M:%S %p") %></td>
+            <td>$<%= flight.price %></td>
+            <td><%= flight.remaining_seats %></td>
+        </tr>
+    <% end %>
+</table>
+<br>
 <%= form_for @ticket do |f| %>
-    
+    <%= f.label :flight %>
+    <%= f.collection_select :flight_id, Flight.all, :id, :flight_no %>
+
+    <%= f.submit %>
 <% end %>

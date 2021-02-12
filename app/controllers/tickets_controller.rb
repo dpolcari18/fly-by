@@ -11,7 +11,13 @@ class TicketsController < ApplicationController
     end
 
     def update
-
+        if @ticket.update(edit_ticket_params)
+            flash[:update] = "Your ticket has been updated"
+            redirect_to ticket_path(@ticket)
+        else
+            flash[:update] = "Your ticket was not updated"
+            redirect_to edit_ticket_path(@ticket)
+        end
     end
 
     def destroy
@@ -19,6 +25,10 @@ class TicketsController < ApplicationController
     end
 
     private
+
+    def edit_ticket_params
+        params.require(:ticket).permit(:flight_id)
+    end
 
     def find_ticket
         @ticket = Ticket.find_by(id: params[:id])

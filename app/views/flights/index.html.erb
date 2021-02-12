@@ -3,6 +3,7 @@
 
 <table>
     <tr>
+        <th>Flight No.</th>
         <th>Origin</th>
         <th>Departure Date</th>
         <th>Time</th>
@@ -14,6 +15,7 @@
     </tr>
     <% @flights.each do |flight| %>
         <tr>
+            <td><%= flight.flight_no %></td>
             <td><%= flight.origin %></td>
             <td><%= flight.departure.strftime("%m/%d/%y") %></td>
             <td><%= flight.departure.strftime("%I:%M:%S %p") %></td>

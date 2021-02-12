@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete :passenger_id
+        byebug
         redirect_to '/'
     end
 
