@@ -1,0 +1,12 @@
+<h1>Ticket Details</h1>
+
+<ul>
+    <li>Passenger: <%= @ticket.passenger.full_name%></li>
+    <li>Airline: <%= @ticket.flight.airline.name%></li>
+    <li>Ticket #: <%= @ticket.ticket_number%></li>
+    <li>Flight #: <%= @ticket.flight.flight_no%></li>
+    <li>Origin: <%= @ticket.flight.origin%></li>
+    <li>Departure: <%= @ticket.flight.departure.strftime("%m/%d/%y - %I:%M:%S %p")%></li>
+    <li>Destination: <%= @ticket.flight.destination%></li>
+    <li>Arrival: <%= @ticket.flight.arrival.strftime("%m/%d/%y - %I:%M:%S %p")%></li>
+</ul>

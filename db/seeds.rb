@@ -23,10 +23,10 @@ employee1 = Employee.create(airline_id: airline1.id, name: "Sara", username: "Sa
 employee2 = Employee.create(airline_id: airline2.id, name: "Robert", username: "Rober12", password: "password")
 
 
-flight1 = Flight.create(flight_no: "UA101", airline_id: airline1.id, origin: "Austin", destination: "Washington DC", departure: Time.now.to_datetime, arrival: (Time.now.to_datetime + 2), price: 100.00, number_of_seats: 40)
-flight2 = Flight.create(flight_no: "DL323", airline_id: airline2.id, origin: "Houston", destination: "Seattle", departure: Time.now.to_datetime, arrival: (Time.now.to_datetime + 5), price: 200.00, number_of_seats: 40)
+flight1 = Flight.create(flight_no: "UA101", airline_id: airline1.id, origin: "Austin", destination: "Washington DC", departure: Time.now.to_datetime, arrival: (Time.now.to_datetime + 0.1), price: 100.00, number_of_seats: 40)
+flight2 = Flight.create(flight_no: "DL323", airline_id: airline2.id, origin: "Houston", destination: "Seattle", departure: Time.now.to_datetime, arrival: (Time.now.to_datetime + 0.2), price: 200.00, number_of_seats: 40)
 
 
 
-ticket1 = Ticket.create(passenger_id: passenger1.id, flight_id: flight1.id, status: "open", number_of_bags: "2PC")
-ticket2 = Ticket.create(passenger_id: passenger2.id, flight_id: flight2.id, status: "open",  number_of_bags: "1PC")
+ticket1 = Ticket.create(passenger_id: passenger1.id, flight_id: flight1.id, status: "open", number_of_bags: "2PC", ticket_number: 100)
+ticket2 = Ticket.create(passenger_id: passenger2.id, flight_id: flight2.id, status: "open",  number_of_bags: "1PC", ticket_number: 101)

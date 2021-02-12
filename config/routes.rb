@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :employees
-  resources :tickets
+  resources :tickets, only: [:show]
   resources :flights, only: [:index, :show]
   resources :airlines
   resources :passengers, only: [:show]
