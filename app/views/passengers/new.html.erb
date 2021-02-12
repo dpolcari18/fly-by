@@ -1,0 +1,23 @@
+
+<h1> Sign Up Form</h1>
+
+<table>
+    <%= form_for @passenger do |f| %>
+        <tr><td>First Name:</td> <td><%= f.text_field :first_name %></td></tr>
+        <tr><td>Last Name:</td> <td><%= f.text_field :last_name %></td></tr>
+        <tr><td>User Name:</td> <td><%= f.text_field :username %></td></tr>
+        <tr><td>Password:</td> <td><%= f.password_field :password %></td></tr>
+        <tr><td>Age:</td> <td><%= f.number_field :age %></td></tr>
+        <tr><td><%= f.submit %></td></tr>
+
+    <% end %>
+</table>
+
+<% if flash[:error] %>
+    <h3>ERROR</h3>
+    <% flash[:error].each do |message| %>
+        <ul>
+            <li><%= message %></li>
+        </ul>
+    <% end %>
+<% end %>
