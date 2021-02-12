@@ -1,0 +1,27 @@
+
+<h2> Flight Details</h2>
+
+<table>
+    <tr>
+        <th>Origin</th>
+        <th>Departure Date</th>
+        <th>Time</th>
+        <th>Destination</th>
+        <th>Arrival Date</th>
+        <th>Time</th>
+        <th>Price</th>
+        <th>Remaining Seats</th>
+    </tr>
+    <% @flights.each do |flight| %>
+        <tr>
+            <td><%= flight.origin %></td>
+            <td><%= flight.departure.strftime("%m/%d/%y") %></td>
+            <td><%= flight.departure.strftime("%I:%M:%S %p") %></td>
+            <td><%= flight.destination %></td>
+            <td><%= flight.arrival.strftime("%m/%d/%y") %></td>
+            <td><%= flight.arrival.strftime("%I:%M:%S %p") %></td>
+            <td><%= flight.price %></td>
+            <td><%= flight.remaining_seats %></td>
+        </tr>
+    <% end %>
+</table>
