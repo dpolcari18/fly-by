@@ -14,16 +14,17 @@
         <th>Arrival Date</th>
         <th>Time</th>
     </tr>
-    <% @passenger.flights.each do |flight| %>
+    <% @passenger.tickets.each do |ticket| %>
         <tr>
-            <td><%= flight.airline.name %></td>
-            <td><%= flight.flight_no %></td>
-            <td><%= flight.origin %></td>
-            <td><%= flight.departure.strftime("%m/%d/%y") %></td>
-            <td><%= flight.departure.strftime("%I:%M:%S %p") %></td>
-            <td><%= flight.destination %></td>
-            <td><%= flight.arrival.strftime("%m/%d/%y") %></td>
-            <td><%= flight.arrival.strftime("%I:%M:%S %p") %></td>
+            <td><%= ticket.flight.airline.name %></td>
+            <td><%= ticket.flight.flight_no %></td>
+            <td><%= ticket.flight.origin %></td>
+            <td><%= ticket.flight.departure.strftime("%m/%d/%y") %></td>
+            <td><%= ticket.flight.departure.strftime("%I:%M:%S %p") %></td>
+            <td><%= ticket.flight.destination %></td>
+            <td><%= ticket.flight.arrival.strftime("%m/%d/%y") %></td>
+            <td><%= ticket.flight.arrival.strftime("%I:%M:%S %p") %></td>
+            <td><%= button_to "View", ticket_path(ticket), method: 'get' %></td>
         </tr>
     <% end %>
 </table>

@@ -1,12 +1,14 @@
 class PassengersController < ApplicationController
 
+    before_action :require_logged_in, only: [:show]
+    before_action :find_passenger, only: [:authenticate_passenger, :show]
+    before_action :authenticate_passenger, only: [:show]
+
     def show 
-        @passenger = Passenger.find_by(id: params[:id])
     end
 
     def new
         @passenger = Passenger.new
-
     end
 
     def create
@@ -24,6 +26,16 @@ class PassengersController < ApplicationController
 
     def passenger_params
         params.require(:passenger).permit(:first_name, :last_name, :username, :password, :age)
+    end
+    
+    def find_passenger
+        @passenger = Passenger.find_by(id: params[:id])
+    end
+
+    def authenticate_passenger
+        unless session[:passenger_id] == @passenger.id
+            redirect_to passenger_path(session[:passenger_id])
+        end
     end
 end
 

@@ -6,4 +6,6 @@ class Flight < ApplicationRecord
   def remaining_seats
     (self.number_of_seats)-(self.tickets.count)
   end
+
 end
+
