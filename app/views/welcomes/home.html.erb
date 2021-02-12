@@ -10,3 +10,8 @@ Login:
 <% end %>
 
 <%= link_to "Sign Up", new_passenger_path %>
+
+<% if flash[:error]%>
+  <h3>ERROR</h3>
+  <div><%= flash[:error] %></div>
+<% end %>

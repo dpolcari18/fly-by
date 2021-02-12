@@ -4,13 +4,16 @@ class SessionsController < ApplicationController
     end
 
     def create
-        # byebug
-        @passenger = Passenger.find_by(username: params[:username])
-        if @passenger.password == params[:password]
-            session[:passenger_id] = @passenger.id
-            redirect_to passenger_path(@passenger)
-        else
-            flash[:error] = @passenger.errors.full_messages
+        if @passenger = Passenger.find_by(username: params[:username])
+            if @passenger.password == params[:password]
+                session[:passenger_id] = @passenger.id
+                redirect_to passenger_path(@passenger)
+            else
+                flash[:error] = "This password doesn't match"
+                redirect_to '/'
+            end
+        else 
+            flash[:error] = "This is not a valid username"
             redirect_to '/'
         end
     end
