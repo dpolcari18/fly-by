@@ -1,8 +1,8 @@
 class TicketsController < ApplicationController
-
     before_action :require_logged_in, only: [:show,:edit, :update, :destroy, :new, :create]
     before_action :find_ticket, only: [:show,:edit, :update, :destroy, :authenticate_passenger]
     before_action :authenticate_passenger, only: [:show, :edit, :update, :destroy]
+    before_action :search, only: [:new, :edit]
 
     def show
     end
@@ -41,8 +41,18 @@ class TicketsController < ApplicationController
         @ticket.destroy
         redirect_to passenger_path(session[:passenger_id])
     end
-
+    
+    def search
+        if params[:origin] != nil
+            Flight.reindex
+            @flights = Flight.search(params[:origin])  
+        else
+            @flights = Flight.all
+        end
+    end
+    
     private
+    
 
     def ticket_params
         params.require(:ticket).permit(:flight_id, :passenger_id)

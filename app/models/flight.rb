@@ -1,4 +1,6 @@
 class Flight < ApplicationRecord
+  searchkick
+  
   belongs_to :airline
   has_many :tickets
   has_many :passengers, through: :tickets

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :employees
+  get 'tickets/search' => 'tickets#search'
   resources :tickets, only: [:show, :destroy, :new, :create, :edit, :update]
   resources :flights, only: [:index, :show]
   resources :airlines

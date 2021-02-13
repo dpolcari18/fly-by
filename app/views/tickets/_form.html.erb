@@ -1,4 +1,11 @@
 
+<%= form_for Flight.new, url: 'search', method: 'get' do |f| %>
+  <%= f.label "Search City" %>  
+  <%= f.text_field :origin %>
+    
+  <%= f.submit "Search" %>
+<%- end %>
+
 <table>
     <tr>
         <th>Flight No.</th>
@@ -11,7 +18,7 @@
         <th>Price</th>
         <th>Remaining Seats</th>
     </tr>
-    <% Flight.all.each do |flight| %>
+    <% @flights.each do |flight| %>
         <tr>
             <td><%= flight.flight_no %></td>
             <td><%= flight.origin %></td>
