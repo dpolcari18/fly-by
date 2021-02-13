@@ -26,12 +26,23 @@
     <% end %>
 </table>
 <br>
-<%= form_for @ticket do |f| %>
-
-    <%= f.label :flight %>
-    <%= f.collection_select :flight_id, Flight.all, :id, :flight_no %>
-
-    <%= f.hidden_field :passenger_id, value: session[:passenger_id] %>
-
-    <%= f.submit %>
-<% end %>
+<table>
+    <%= form_for @ticket do |f| %>
+        <tr>
+            <td><%= f.label :flight %></td>
+            <td><%= f.collection_select :flight_id, Flight.all, :id, :flight_no %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :number_of_bags %></td>
+            <td><%= f.number_field :number_of_bags, value: 2 %></td>
+        </tr>
+            <td></td>
+            <td><div>*First two bags fly free!</div></td>
+        <tr>
+            <td><%= f.hidden_field :passenger_id, value: session[:passenger_id] %></td>
+        </tr>
+        <tr>
+            <td><%= f.submit %></td>
+        </tr>
+    <% end %>
+</table>

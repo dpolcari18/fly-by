@@ -28,5 +28,5 @@ flight2 = Flight.create(flight_no: "DL323", airline_id: airline2.id, origin: "Ho
 
 
 
-ticket1 = Ticket.create(passenger_id: passenger1.id, flight_id: flight1.id, status: "open", number_of_bags: "2PC", ticket_number: 100)
-ticket2 = Ticket.create(passenger_id: passenger2.id, flight_id: flight2.id, status: "open",  number_of_bags: "1PC", ticket_number: 101)
+ticket1 = Ticket.create(passenger_id: passenger1.id, flight_id: flight1.id, status: "open", number_of_bags: "2", ticket_number: 100)
+ticket2 = Ticket.create(passenger_id: passenger2.id, flight_id: flight2.id, status: "open",  number_of_bags: "1", ticket_number: 101)
