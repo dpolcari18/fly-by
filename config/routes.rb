@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :employees
-  resources :tickets, only: [:show, :destroy, :edit, :update]
+  resources :tickets, only: [:show, :destroy, :new, :create, :edit, :update]
   resources :flights, only: [:index, :show]
   resources :airlines
   resources :passengers, only: [:show, :new, :create]
