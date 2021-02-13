@@ -12,8 +12,8 @@ Employee.destroy_all
 Passenger.destroy_all
 Airline.destroy_all
 
-passenger1 = Passenger.create(first_name: "Hanna", last_name: "Mulugeta", username: "hmulugeta", password: "123", age: 28)
-passenger2 = Passenger.create(first_name: "David", last_name: "Polcari", username: "dpolcari", password: "123", age: 28)
+passenger1 = Passenger.create(first_name: "Hanna", last_name: "Mulugeta", username: "hmulugeta", password: "123456", age: 28)
+passenger2 = Passenger.create(first_name: "David", last_name: "Polcari", username: "dpolcari", password: "123456", age: 28)
 
 airline1 = Airline.create(name: "United Air", code: "UA")
 airline2 = Airline.create(name: "Delta Air ", code: "DL")

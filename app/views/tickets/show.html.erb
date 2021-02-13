@@ -15,3 +15,5 @@
     <li>Arrival: <%= @ticket.flight.arrival.strftime("%m/%d/%y - %I:%M:%S %p")%></li>
     <li>Price: $<%= @ticket.flight.price %></li>
 </ul>
+
+<%= button_to "Cancel Ticket", ticket_path(@ticket), method: "delete" %>

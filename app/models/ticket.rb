@@ -9,7 +9,6 @@ class Ticket < ApplicationRecord
   private
 
   def create_ticket_number
-    unique_ticket_number = Ticket.all.last.ticket_number += 1
-    self.ticket_number = unique_ticket_number
+    self.ticket_number = rand(1..9999)
   end
 end

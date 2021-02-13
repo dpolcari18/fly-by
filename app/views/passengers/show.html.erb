@@ -7,6 +7,7 @@
     <tr>
         <th>Airline</th>
         <th>Flight Number</th>
+        <th>Ticket Number</th>
         <th>Origin</th>
         <th>Departure Date</th>
         <th>Time</th>
@@ -18,6 +19,7 @@
         <tr>
             <td><%= ticket.flight.airline.name %></td>
             <td><%= ticket.flight.flight_no %></td>
+            <td><%= ticket.ticket_number %></td>
             <td><%= ticket.flight.origin %></td>
             <td><%= ticket.flight.departure.strftime("%m/%d/%y") %></td>
             <td><%= ticket.flight.departure.strftime("%I:%M:%S %p") %></td>

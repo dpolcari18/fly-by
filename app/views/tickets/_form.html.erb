@@ -28,7 +28,10 @@
 <br>
 <%= form_for @ticket do |f| %>
 
-   <%= f.label :flight %>
+    <%= f.label :flight %>
     <%= f.collection_select :flight_id, Flight.all, :id, :flight_no %>
 
-    <%= f.submit %><% end %>
+    <%= f.hidden_field :passenger_id, value: session[:passenger_id] %>
+
+    <%= f.submit %>
+<% end %>

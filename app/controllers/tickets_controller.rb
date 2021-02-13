@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
 
-    before_action :require_logged_in, only: [:show,:edit, :update, :destroy]
+    before_action :require_logged_in, only: [:show,:edit, :update, :destroy, :new, :create]
     before_action :find_ticket, only: [:show,:edit, :update, :destroy, :authenticate_passenger]
     before_action :authenticate_passenger, only: [:show, :edit, :update, :destroy]
 
@@ -11,7 +11,16 @@ class TicketsController < ApplicationController
         @ticket = Ticket.new
     end
 
-    def create 
+    def create
+        @ticket = Ticket.new(ticket_params)
+        if @ticket.valid?
+            @ticket.save
+            flash[:update] = "Thank you for purchasing a ticket to #{@ticket.flight.destination}"
+            redirect_to ticket_path(@ticket)
+        else
+            flash[:error] = @ticket.errors.full_messages
+            redirect_to new_ticket_path
+        end 
     end
 
 
@@ -19,7 +28,7 @@ class TicketsController < ApplicationController
     end
 
     def update
-        if @ticket.update(edit_ticket_params)
+        if @ticket.update(ticket_params)
             flash[:update] = "Your ticket has been updated"
             redirect_to ticket_path(@ticket)
         else
@@ -30,12 +39,13 @@ class TicketsController < ApplicationController
 
     def destroy
         @ticket.destroy
+        redirect_to passenger_path(session[:passenger_id])
     end
 
     private
 
-    def edit_ticket_params
-        params.require(:ticket).permit(:flight_id)
+    def ticket_params
+        params.require(:ticket).permit(:flight_id, :passenger_id)
     end
 
     def find_ticket
