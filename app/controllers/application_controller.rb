@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    helper_method :logged_in?
     before_action :current_passenger
 
     def current_passenger

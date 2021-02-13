@@ -11,8 +11,8 @@
 
   <body>
     <header>
-      <% if session[:passenger_id] != nil %>
-        <%= link_to "Home", passenger_path(session[:passenger_id]) %> - <%= link_to "Flights", flights_path %> 
+      <% if logged_in? %>
+        <%= link_to "Home", passenger_path(session[:passenger_id]) %> - <%= link_to "Flights", flights_path %> - <%= link_to 'Logout', logout_path %>
       <% else %>
         <%= link_to "Home", '/' %> - <%= link_to "Flights", flights_path %> - <%= link_to "Login", '/' %>
       <% end %>
