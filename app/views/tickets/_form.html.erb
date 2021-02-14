@@ -1,10 +1,15 @@
 
-<%= form_for Flight.new, url: 'search', method: 'get' do |f| %>
-  <%= f.label "Search City" %>  
-  <%= f.text_field :origin %>
-    
-  <%= f.submit "Search" %>
-<%- end %>
+<h4>Search Flights by City</h4>
+    <%= form_tag(new_ticket_path, method: :get) do %>
+        <%= text_field_tag(:search, params[:search]) %>
+        <%= submit_tag ("Search") %>
+    <% end %>
+    <br>
+    <% if flash[:notice] %>
+        <%= flash[:notice] %>
+    <% end %>
+    <br>
+    <br>
 
 <table>
     <tr>

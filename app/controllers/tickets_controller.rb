@@ -9,6 +9,15 @@ class TicketsController < ApplicationController
 
     def new
         @ticket = Ticket.new
+        if !params[:search] or params[:search] == ""
+            @flights = Flight.all
+        else
+            @flights = Flight.search(params[:search])
+            if @flights.results == []
+                @flights = Flight.all
+                flash.now[:notice] = "Sorry we couldn't find any flights matching this city. Please try again."
+            end
+        end
     end
 
     def create
