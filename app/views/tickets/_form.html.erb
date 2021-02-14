@@ -42,7 +42,7 @@
     <%= form_for @ticket do |f| %>
         <tr>
             <td><%= f.label :flight %></td>
-            <td><%= f.collection_select :flight_id, Flight.all, :id, :flight_no %></td>
+            <td><%= f.collection_select :flight_id, @flights, :id, :flight_no %></td>
         </tr>
         <tr>
             <td><%= f.label :number_of_bags %></td>
