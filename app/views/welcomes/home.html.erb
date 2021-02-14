@@ -1,13 +1,21 @@
 <h1>Welcome to Fly-By</h1>
 
-Login:
-<%= form_with url: sessions_path do |f| %>
-  <%= f.label :query, "Username:" %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Login" %>
-<% end %>
+<table>
+  <tr>
+  Login:
+  <tr>
+  <%= form_with url: sessions_path do |f| %>
+    <tr>
+      <td><%= f.label :query, "Username:" %></td>
+      <td><%= f.text_field :username %></td>
+    <tr>
+      <td><%= f.label :password %></td>
+      <td><%= f.password_field :password %></td>
+    <tr>
+      <td><%= f.submit "Login" %></td>
+  <% end %>
+</table>
+<br>
 
 <%= link_to "Sign Up", new_passenger_path %>
 
