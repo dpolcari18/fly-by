@@ -3,6 +3,7 @@ class TicketsController < ApplicationController
     before_action :require_logged_in, only: [:show,:edit, :update, :destroy, :new, :create]
     before_action :find_ticket, only: [:show,:edit, :update, :destroy, :authenticate_passenger]
     before_action :authenticate_passenger, only: [:show, :edit, :update, :destroy]
+    
 
     def show
     end
@@ -49,7 +50,6 @@ class TicketsController < ApplicationController
 
     def ticket_params
         params.require(:ticket).permit(:flight_id, :passenger_id, :status)
-       
     end
 
     def find_ticket

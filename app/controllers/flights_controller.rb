@@ -8,4 +8,6 @@ class FlightsController < ApplicationController
         @flight = Flight.find_by(id: params[:id])
     end
 
+
+    
 end

@@ -15,7 +15,7 @@ class Passenger < ApplicationRecord
 
     def child_passengers
         Passenger.all.each do |p|
-            p.age < 12
+            p.age < 12 && p.age > 2
         end
         
     end

@@ -3,6 +3,7 @@ class PassengersController < ApplicationController
     before_action :require_logged_in, only: [:show]
     before_action :find_passenger, only: [:authenticate_passenger, :show]
     before_action :authenticate_passenger, only: [:show]
+    before_action :child_passenger, only: [:show, :new, :create]
 
     def show 
     end
