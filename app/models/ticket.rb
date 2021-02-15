@@ -11,4 +11,7 @@ class Ticket < ApplicationRecord
   def create_ticket_number
     self.ticket_number = rand(1..9999)
   end
+
+  def used_ticket
+  end
 end

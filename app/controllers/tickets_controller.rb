@@ -29,6 +29,9 @@ class TicketsController < ApplicationController
 
     def update
         if @ticket.update(ticket_params)
+            @ticket.status = "Exchanged"
+            byebug
+        
             flash[:update] = "Your ticket has been updated"
             redirect_to ticket_path(@ticket)
         else
@@ -45,7 +48,8 @@ class TicketsController < ApplicationController
     private
 
     def ticket_params
-        params.require(:ticket).permit(:flight_id, :passenger_id)
+        params.require(:ticket).permit(:flight_id, :passenger_id, :status)
+       
     end
 
     def find_ticket

@@ -12,6 +12,6 @@ Login:
 <%= link_to "Sign Up", new_passenger_path %>
 
 <% if flash[:error]%>
-  <h3>ERROR</h3>
+  <h3 style = 'color: red'>ERROR</h3>
   <div style = 'color: red' ><%= flash[:error] %></div>
 <% end %>

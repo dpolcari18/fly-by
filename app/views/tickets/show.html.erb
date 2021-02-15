@@ -7,13 +7,14 @@
 <ul>
     <li>Passenger: <%= @ticket.passenger.full_name%></li>
     <li>Airline: <%= @ticket.flight.airline.name%></li>
-    <li>Ticket #: <%= @ticket.ticket_number%></li>
-    <li>Flight #: <%= @ticket.flight.flight_no%></li>
+    <li>Ticket No.: <%= @ticket.ticket_number%></li>
+    <li>Flight No.: <%= @ticket.flight.flight_no%></li>
     <li>Origin: <%= @ticket.flight.origin%></li>
-    <li>Departure: <%= @ticket.flight.departure.strftime("%m/%d/%y - %I:%M:%S %p")%></li>
+    <li>Departure: <%= @ticket.flight.departure.strftime("%m/%d/%y - %I:%M %p")%></li>
     <li>Destination: <%= @ticket.flight.destination%></li>
-    <li>Arrival: <%= @ticket.flight.arrival.strftime("%m/%d/%y - %I:%M:%S %p")%></li>
+    <li>Arrival: <%= @ticket.flight.arrival.strftime("%m/%d/%y - %I:%M %p")%></li>
     <li>Price: $<%= @ticket.flight.price %></li>
+    <li>Ticket Status: <%= @ticket.status %></li>
 </ul>
 
 <%= button_to "Cancel Ticket", ticket_path(@ticket), method: "delete" %>

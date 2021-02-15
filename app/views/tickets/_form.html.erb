@@ -16,10 +16,10 @@
             <td><%= flight.flight_no %></td>
             <td><%= flight.origin %></td>
             <td><%= flight.departure.strftime("%m/%d/%y") %></td>
-            <td><%= flight.departure.strftime("%I:%M:%S %p") %></td>
+            <td><%= flight.departure.strftime("%H:%M: %p") %></td>
             <td><%= flight.destination %></td>
             <td><%= flight.arrival.strftime("%m/%d/%y") %></td>
-            <td><%= flight.arrival.strftime("%I:%M:%S %p") %></td>
+            <td><%= flight.arrival.strftime("%I:%M: %p") %></td>
             <td>$<%= flight.price %></td>
             <td><%= flight.remaining_seats %></td>
         </tr>
