@@ -22,6 +22,16 @@ class Passenger < ApplicationRecord
         self.tickets.select {|ticket| ticket.status != "Closed"}
     end
 
+    def favorite_destination
+        destinations = self.tickets.map {|ticket| ticket.flight.destination }
+        destinations.max_by { |city| destinations.count(city) }
+    end
+
+    def total_flight_hours
+        total = self.closed_status.map {|ticket| ticket.flight.arrival - ticket.flight.departure }.sum
+        (total/3600).to_i
+    end
+
     private
 
     def capitalize
