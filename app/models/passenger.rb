@@ -12,4 +12,12 @@ class Passenger < ApplicationRecord
     def full_name
         "#{self.first_name} #{self.last_name}"
     end
+
+    def closed_status
+        self.tickets.select {|ticket| ticket.status == "Closed"}
+    end
+
+    def upcoming_status
+        self.tickets.select {|ticket| ticket.status != "Closed"}
+    end
 end
