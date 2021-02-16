@@ -7,6 +7,9 @@ class SessionsController < ApplicationController
         if @passenger = Passenger.find_by(username: params[:username])
             if @passenger.password == params[:password]
                 session[:passenger_id] = @passenger.id
+                @passenger.tickets.each do |ticket|
+                    ticket.change_ticket_status
+                end
                 redirect_to passenger_path(@passenger)
             else
                 flash[:error] = "This password doesn't match"

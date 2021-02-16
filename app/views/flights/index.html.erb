@@ -26,7 +26,7 @@
                     <td><%= flight.destination %></td>
                     <td><%= flight.arrival.strftime("%m/%d/%y") %></td>
                     <td><%= flight.arrival.strftime("%I:%M:%S %p") %></td>
-                    <td><%= flight.price %></td>
+                    <td>$<%= flight.price %></td>
                     <td><%= flight.remaining_seats %></td>
                 </tr>
             <% end %>

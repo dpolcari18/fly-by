@@ -39,6 +39,7 @@ class TicketsController < ApplicationController
     def update
         if @ticket.update(ticket_params)
             flash[:update] = "Your ticket has been updated"
+            @ticket.change_ticket_status
             redirect_to ticket_path(@ticket)
         else
             flash[:update] = "Your ticket was not updated"

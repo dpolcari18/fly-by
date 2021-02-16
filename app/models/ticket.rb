@@ -6,6 +6,14 @@ class Ticket < ApplicationRecord
 
   before_create :create_ticket_number
 
+  def change_ticket_status
+    if self.flight.arrival < Time.now.to_datetime
+      self.update(status: "Closed")
+    elsif self.created_at != self.updated_at
+      self.update(status: "Changed")
+    end
+  end
+  
   private
 
   def create_ticket_number
