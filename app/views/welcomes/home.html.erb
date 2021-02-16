@@ -1,10 +1,12 @@
-<h1>Welcome to Fly-By</h1>
+<div class = "heading primary-heading"> Welcome to Fly-By</div>
 
+<div class = "form">
 <table>
+
   <tr>
-  Login:
+  <h3>Login:</h3>
   <tr>
-  <%= form_with url: sessions_path do |f| %>
+  <%= form_with url: sessions_path, html: {class: "ui form"} do |f| %>
     <tr>
       <td><%= f.label :query, "Username:" %></td>
       <td><%= f.text_field :username %></td>
@@ -12,14 +14,15 @@
       <td><%= f.label :password %></td>
       <td><%= f.password_field :password %></td>
     <tr>
-      <td><%= f.submit "Login" %></td>
+      <td><%= f.submit "Login", class:"ui inverted blue button"  %></td>
   <% end %>
 </table>
 <br>
 
-<%= link_to "Sign Up", new_passenger_path %>
-
+<%= link_to "Sign Up", new_passenger_path, class:"ui inverted blue button"%>
+</div>
 <% if flash[:error]%>
   <h3>ERROR</h3>
   <div style = 'color: red' ><%= flash[:error] %></div>
 <% end %>
+

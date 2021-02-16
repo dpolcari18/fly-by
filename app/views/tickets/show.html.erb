@@ -1,19 +1,27 @@
-<h1>Ticket Details</h1>
+<div class="heading secondary-heading">Ticket Details</div>
 
 <% if flash[:update]%>
     <h4> <%= flash[:update] %></h4>
 <% end %>
+<div class = "form_search">
+    <div class="ui list">
+            <table>
+                <tr><td><div class = "item"><i class="users icon"></i></td><td><div class="content">Passenger: <%= @ticket.passenger.full_name%></div></div></td></tr>
+                <tr><td><div class = "item"><i class="plane icon"></i></td><td><div class="content">Airline: <%= @ticket.flight.airline.name%></div></div></td></tr>
+                <tr><td><div class = "item"><i class="ticket alternate icon"></i></td><td><div class="content">Ticket #: <%= @ticket.ticket_number%></div></div></td></tr>
+                <tr><td><div class = "item"><i class="hashtag icon"></i></td><td><div class="content">Flight #: <%= @ticket.flight.flight_no%></div></div></td></tr>
+                <tr><td><div class = "item"><i class="map marker alternate icon"></i></td><td><div class="content">Origin: <%= @ticket.flight.origin%></div></div></td></tr>
+                <tr><td><div class = "item"><i class="clock outline icon"></i></td><td><div class="content">Departure: <%= @ticket.flight.departure.strftime("%m/%d/%y - %I:%M:%S %p")%></div></div></td></tr>
+                <tr><td><div class = "item"><i class="map marker alternate icon"></i></td><td><div class="content">Destination: <%= @ticket.flight.destination%></div></div></td></tr>
+                <tr><td><div class = "item"><i class="clock outline icon"></i></td><td><div class="content">Arrival: <%= @ticket.flight.arrival.strftime("%m/%d/%y - %I:%M:%S %p")%></div></div></td></tr>
+                <tr><td><div class = "item"><i class="dollar sign icon"></i></td><td><div class="content">Price: $<%= @ticket.flight.price %></div></div></td></tr>
+            </table>
+    </div>
 
-<ul>
-    <li>Passenger: <%= @ticket.passenger.full_name%></li>
-    <li>Airline: <%= @ticket.flight.airline.name%></li>
-    <li>Ticket #: <%= @ticket.ticket_number%></li>
-    <li>Flight #: <%= @ticket.flight.flight_no%></li>
-    <li>Origin: <%= @ticket.flight.origin%></li>
-    <li>Departure: <%= @ticket.flight.departure.strftime("%m/%d/%y - %I:%M:%S %p")%></li>
-    <li>Destination: <%= @ticket.flight.destination%></li>
-    <li>Arrival: <%= @ticket.flight.arrival.strftime("%m/%d/%y - %I:%M:%S %p")%></li>
-    <li>Price: $<%= @ticket.flight.price %></li>
-</ul>
-
-<%= button_to "Cancel Ticket", ticket_path(@ticket), method: "delete" %>
+    <table>
+        <tr>
+            <th> <%= button_to "Change Ticket", edit_ticket_path(@ticket), method: "get" %></th> 
+            <th><%= button_to "Cancel Ticket", ticket_path(@ticket), method: "delete" %></th>
+        </tr>
+    </table>
+</div>

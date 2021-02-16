@@ -1,35 +1,34 @@
 
-<h2> Welcome <%= @passenger.full_name %> </h2>
+<div class="heading secondary-heading"> Welcome <%= @passenger.full_name %> </div>
 
-<h3> Here are your upcoming flights: </h3>
+<div id = "upcoming-flight"> Here are your upcoming flights <%= "#{@passenger.first_name}" %>: </div>
 
-<table>
-    <tr>
-        <th>Airline</th>
-        <th>Flight Number</th>
-        <th>Ticket Number</th>
-        <th>Origin</th>
-        <th>Departure Date</th>
-        <th>Time</th>
-        <th>Destination</th>
-        <th>Arrival Date</th>
-        <th>Time</th>
-    </tr>
-    <% @passenger.tickets.each do |ticket| %>
+<div class="ui center aligned grid">
+    <table class="ui celled collapsing table">
         <tr>
-            <td><%= ticket.flight.airline.name %></td>
-            <td><%= ticket.flight.flight_no %></td>
-            <td><%= ticket.ticket_number %></td>
-            <td><%= ticket.flight.origin %></td>
-            <td><%= ticket.flight.departure.strftime("%m/%d/%y") %></td>
-            <td><%= ticket.flight.departure.strftime("%I:%M:%S %p") %></td>
-            <td><%= ticket.flight.destination %></td>
-            <td><%= ticket.flight.arrival.strftime("%m/%d/%y") %></td>
-            <td><%= ticket.flight.arrival.strftime("%I:%M:%S %p") %></td>
-            <td><%= button_to "View", ticket_path(ticket), method: 'get' %></td>
-            <td><%= button_to "Edit", edit_ticket_path(ticket), method: 'get' %></td>
+            <th>Airline</th>
+            <th>Flight Number</th>
+            <th>Ticket Number</th>
+            <th>Origin</th>
+            <th>Departure Date</th>
+            <th>Time</th>
+            <th>Destination</th>
+            <th>Arrival Date</th>
+            <th>Time</th>
         </tr>
-    <% end %>
-</table>
-
+        <% @passenger.tickets.each do |ticket| %>
+            <tr>
+                <td><%= ticket.flight.airline.name %></td>
+                <td><%= ticket.flight.flight_no %></td>
+                <td><%= link_to ticket.ticket_number, ticket_path(ticket) %></td>
+                <td><%= ticket.flight.origin %></td>
+                <td><%= ticket.flight.departure.strftime("%m/%d/%y") %></td>
+                <td><%= ticket.flight.departure.strftime("%I:%M:%S %p") %></td>
+                <td><%= ticket.flight.destination %></td>
+                <td><%= ticket.flight.arrival.strftime("%m/%d/%y") %></td>
+                <td><%= ticket.flight.arrival.strftime("%I:%M:%S %p") %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
 

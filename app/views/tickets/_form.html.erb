@@ -1,17 +1,17 @@
+<div class = "form_search ">
+    <h4>Search Flights by City</h4>
+        <%= form_tag(new_ticket_path, method: :get) do %>
+            <%= text_field_tag(:search, params[:search]) %>
+            <%= submit_tag ("Search") %>
+        <% end %>
+        <br>
+        <% if flash[:notice] %>
+            <%= flash[:notice] %>
+        <% end %>
+    </div>
 
-<h4>Search Flights by City</h4>
-    <%= form_tag(new_ticket_path, method: :get) do %>
-        <%= text_field_tag(:search, params[:search]) %>
-        <%= submit_tag ("Search") %>
-    <% end %>
-    <br>
-    <% if flash[:notice] %>
-        <%= flash[:notice] %>
-    <% end %>
-    <br>
-    <br>
-
-<table>
+<div class="ui center aligned grid">
+<table class="ui celled collapsing table">
     <tr>
         <th>Flight No.</th>
         <th>Origin</th>
@@ -37,8 +37,9 @@
         </tr>
     <% end %>
 </table>
+</div>
 <br>
-<table>
+<table class ="form">
     <%= form_for @ticket do |f| %>
         <tr>
             <td><%= f.label :flight %></td>
