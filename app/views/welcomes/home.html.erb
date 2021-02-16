@@ -28,7 +28,7 @@
 <%= link_to "Sign Up", new_passenger_path, class:"ui inverted blue button"%>
 </div>
 
-<div class="update">
+<div class="error">
   <% if flash[:error]%>
     <h3>ERROR</h3>
     <div style = 'color: red' ><%= flash[:error] %></div>

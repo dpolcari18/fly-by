@@ -1,11 +1,13 @@
 
 <div class="heading secondary-heading"> Welcome <%= @passenger.full_name %> </div>
 
-Fun Facts!
-<div>Favorite Destination: <%= @passenger.favorite_destination %></div>
-<div>Total Flight Hours: <%= @passenger.total_flight_hours %> hours</div>
+<div class = "form">
+    Fun Facts!
+    <div>Favorite Destination: <%= @passenger.favorite_destination %></div>
+    <div>Total Flight Hours: <%= @passenger.total_flight_hours %> hours</div>
+</div>
 
-<div id = "upcoming-flight"> Upcoming flights: </div>
+<div class = "upcoming-flight"> Upcoming Flights</div>
 
 <div class="ui center aligned grid">
     <table class="ui celled collapsing table">
@@ -36,7 +38,7 @@ Fun Facts!
     </table>
 </div>
 
-<div id = "upcoming-flight"> Past flights: </div>
+<div class = "upcoming-flight"> Past Flights</div>
 
 <div class="ui center aligned grid">
     <table class="ui celled collapsing table">

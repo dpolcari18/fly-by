@@ -16,7 +16,12 @@ body{
 }
 
 .update {
-    margin: 25px 7vw;
+    margin: 25px ;
+}
+
+.error {
+    margin: 25px;
+    color: red;
 }
 
 .primary-heading {
@@ -30,9 +35,9 @@ body{
     padding: 25px;
 
 }
-#upcoming-flight {
+.upcoming-flight {
     font-size: 20px;
-    margin: 30px 7vw
+    margin: 30px 25vw
 }
 
 .wrapper {
