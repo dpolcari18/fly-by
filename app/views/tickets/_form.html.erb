@@ -5,9 +5,11 @@
             <%= submit_tag ("Search") %>
         <% end %>
         <br>
-        <% if flash[:notice] %>
-            <%= flash[:notice] %>
-        <% end %>
+        <div class="update">
+            <% if flash[:notice] %>
+                <%= flash[:notice] %>
+            <% end %>
+        </div>
     </div>
 
 <div class="ui center aligned grid">

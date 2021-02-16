@@ -15,6 +15,10 @@ body{
     color: blue;
 }
 
+.update {
+    margin: 25px 7vw;
+}
+
 .primary-heading {
     font-size: 75px;
     text-align: left;

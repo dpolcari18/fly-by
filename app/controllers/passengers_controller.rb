@@ -15,7 +15,8 @@ class PassengersController < ApplicationController
         @passenger = Passenger.new(passenger_params)
         if @passenger.valid?
             @passenger.save
-            redirect_to passenger_path(@passenger)
+            flash[:update] = "Thanks for signing up #{@passenger.full_name}. Please login."
+            redirect_to '/'
         else
             flash[:error] = @passenger.errors.full_messages
             redirect_to new_passenger_path

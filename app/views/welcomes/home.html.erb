@@ -1,5 +1,11 @@
 <div class = "heading primary-heading"> Welcome to Fly-By</div>
 
+<div class = "update">
+  <% if flash[:update] %>
+    <%= flash[:update] %>
+  <% end %>
+<div>
+
 <div class = "form">
 <table>
 
@@ -21,8 +27,11 @@
 
 <%= link_to "Sign Up", new_passenger_path, class:"ui inverted blue button"%>
 </div>
-<% if flash[:error]%>
-  <h3>ERROR</h3>
-  <div style = 'color: red' ><%= flash[:error] %></div>
-<% end %>
+
+<div class="update">
+  <% if flash[:error]%>
+    <h3>ERROR</h3>
+    <div style = 'color: red' ><%= flash[:error] %></div>
+  <% end %>
+</div>
 

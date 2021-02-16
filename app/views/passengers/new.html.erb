@@ -22,20 +22,19 @@
      <div class="two fields">
         <div class="field">
             <tr><td>Age:</td> <td><%= f.number_field :age %></td>
-            </div>
-        <div class="field">
-         <td>Email:</td> <td><%= f.text_field :age %></td></tr> 
         </div>
         <tr><td><%= f.submit "Create Passenger", class: "ui inverted green button" %></td></tr>
 
     <% end %>
 </table>
 
-<% if flash[:error] %>
-    <h3 style = 'color: red' >ERROR</h3>
-    <% flash[:error].each do |message| %>
-        <ul>
-            <li style = 'color: red' ><%= message %></li>
-        </ul>
+<div class="update">
+    <% if flash[:error] %>
+        <h3 style = 'color: red' >ERROR</h3>
+        <% flash[:error].each do |message| %>
+            <ul>
+                <li style = 'color: red' ><%= message %></li>
+            </ul>
+        <% end %>
     <% end %>
-<% end %>
+</div>

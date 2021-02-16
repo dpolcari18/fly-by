@@ -1,8 +1,10 @@
 <div class="heading secondary-heading">Ticket Details</div>
+<div class="update">
+    <% if flash[:update]%>
+        <h4> <%= flash[:update] %></h4>
+    <% end %>
+</div>
 
-<% if flash[:update]%>
-    <h4> <%= flash[:update] %></h4>
-<% end %>
 <div class = "form_search">
     <div class="ui list">
             <table>
