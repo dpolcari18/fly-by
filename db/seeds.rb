@@ -55,6 +55,23 @@ end
 
 # flight1 = Flight.create(flight_no: "UA101", airline_id: airline1.id, origin: "Austin", destination: "Washington DC", departure: Time.now.to_datetime, arrival: (Time.now.to_datetime + 0.1), price: 100.00, number_of_seats: 40)
 # flight2 = Flight.create(flight_no: "DL323", airline_id: airline2.id, origin: "Houston", destination: "Seattle", departure: Time.now.to_datetime, arrival: (Time.now.to_datetime + 0.2), price: 200.00, number_of_seats: 40)
+previous_flights = Flight.all.select {|flight| flight.departure < Time.now }
+
+ticket1 = Ticket.create(passenger_id: passenger1.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket2 = Ticket.create(passenger_id: passenger1.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket3 = Ticket.create(passenger_id: passenger1.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket4 = Ticket.create(passenger_id: passenger1.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket5 = Ticket.create(passenger_id: passenger1.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket6 = Ticket.create(passenger_id: passenger1.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket7 = Ticket.create(passenger_id: passenger1.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket8 = Ticket.create(passenger_id: passenger2.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket9 = Ticket.create(passenger_id: passenger2.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket10 = Ticket.create(passenger_id: passenger2.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket11 = Ticket.create(passenger_id: passenger2.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket12 = Ticket.create(passenger_id: passenger2.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket13 = Ticket.create(passenger_id: passenger2.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket14 = Ticket.create(passenger_id: passenger2.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
+ticket15 = Ticket.create(passenger_id: passenger2.id, flight_id: previous_flights.sample(1)[0].id, number_of_bags: "2")
 
 # ticket1 = Ticket.create(passenger_id: passenger1.id, flight_id: flight1.id, status: "open", number_of_bags: "2", ticket_number: 100)
 # ticket2 = Ticket.create(passenger_id: passenger2.id, flight_id: flight2.id, status: "open",  number_of_bags: "1", ticket_number: 101)

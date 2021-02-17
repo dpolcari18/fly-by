@@ -6,6 +6,8 @@ class Ticket < ApplicationRecord
 
   before_create :create_ticket_number
 
+  validates :flight_id, uniqueness: true
+
   def change_ticket_status
     if self.flight.arrival < Time.now.to_datetime
       self.update(status: "Closed")
