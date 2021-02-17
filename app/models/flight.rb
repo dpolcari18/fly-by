@@ -27,5 +27,13 @@ class Flight < ApplicationRecord
     end
   end
 
+  def self.upcoming_flights
+    self.sort_flights.select {|flight| flight.departure >= Time.now }
+  end
+
+  def self.sort_flights
+    Flight.all.sort_by {|flight| flight.departure}
+  end
+
 end
 

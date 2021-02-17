@@ -13,6 +13,14 @@ class Ticket < ApplicationRecord
       self.update(status: "Changed")
     end
   end
+
+  def upcoming_flights
+    self.sort_flights.select {|flight| flight.departure >= Time.now }
+  end
+
+  def sort_flights
+    self.sort_by {|flight| flight.departure}
+  end
   
   private
 

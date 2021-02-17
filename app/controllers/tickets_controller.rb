@@ -10,11 +10,12 @@ class TicketsController < ApplicationController
     def new
         @ticket = Ticket.new
         if !params[:search] or params[:search] == ""
-            @flights = Flight.all
+            @flights = Flight.upcoming_flights
         else
             @flights = Flight.search(params[:search])
-            if @flights.results == []
-                @flights = Flight.all
+            @flights = @flights.sort_by {|flight| flight.departure}.select{|f| f.departure >= Time.now}
+            if @flights == []
+                @flights = Flight.upcoming_flights
                 flash.now[:notice] = "Sorry we couldn't find any flights matching this city. Please try again."
             end
         end
@@ -57,7 +58,7 @@ class TicketsController < ApplicationController
             Flight.reindex
             @flights = Flight.search(params[:origin])  
         else
-            @flights = Flight.all
+            @flights = Flight.upcoming_flights
         end
     end
     

@@ -1,7 +1,7 @@
 class FlightsController < ApplicationController
 
     def index
-        @flights = Flight.all
+        @flights = Flight.upcoming_flights
     end
 
     def show 
