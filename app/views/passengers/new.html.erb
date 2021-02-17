@@ -1,8 +1,8 @@
 
-<div class="heading secondary-heading wrapping"> Sign Up Form</div>
+<div class="heading secondary-heading"> Sign Up Form</div>
 
-<table class = "form">
-    <%= form_for @passenger, html: {class: "ui form"} do |f| %>
+<table class="ui segment form_search">
+    <%= form_for @passenger, html: {class: "ui inverted form"} do |f| %>
     <div class="two fields">
         <div class="field">
             <tr><td>First Name:</td> <td><%= f.text_field :first_name %></td>
@@ -23,7 +23,7 @@
         <div class="field">
             <tr><td>Age:</td> <td><%= f.number_field :age %></td>
         </div>
-        <tr><td><%= f.submit "Create Passenger", class: "ui inverted green button" %></td></tr>
+        <tr><td><%= f.submit "Create Passenger", class: "ui primary button" %></td></tr>
 
     <% end %>
 </table>

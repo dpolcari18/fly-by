@@ -6,8 +6,6 @@ body{
 .heading {
     color: green;
    
-    background-image: url(flying.jpg);
-    background-size:cover
  
 }
 
@@ -60,10 +58,18 @@ body{
 .form {
     margin: 30px 5vw;
     padding: 20px;
-    border: 3px solid lightblue;
+    /* border: 3px solid lightblue; */
     boarder-radius: 50px;
 }
 
 .form_search {
     margin: 30px 5vw;
+}
+
+#bkgnd {
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    height: auto;
+    z-index: -1;
 }

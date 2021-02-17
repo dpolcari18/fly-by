@@ -14,10 +14,11 @@
 
   <body>
     <header>
+    <%= image_tag("flying.jpg", id: "bkgnd")%>
       <% if logged_in? %>
-        <%= link_to "Home", passenger_path(session[:passenger_id]), class: "ui inverted blue button" %> <%= link_to "Flights", flights_path, class: "ui inverted primary button" %> <%= link_to 'Purchase Ticket', new_ticket_path, class:"ui inverted green button" %> <%= link_to 'Logout', logout_path, class: "ui inverted red button"%>
+        <%= link_to "Home", passenger_path(session[:passenger_id]), class: "ui primary button" %> <%= link_to "Flights", flights_path, class: "ui primary button" %><%= link_to 'Purchase Ticket', new_ticket_path, class: "ui primary button" %> <%= link_to 'Logout', logout_path, class: "ui red button"%>
       <% else %>
-        <%= link_to "Home", '/', class: "ui inverted blue button"  %>  <%= link_to "Flights", flights_path, class: "ui inverted primary button" %> <%= link_to "Login", '/', class: "ui inverted teal button"%>
+        <%= link_to "Home", '/', class: "ui primary button"  %>  <%= link_to "Flights", flights_path, class: "ui primary button" %> <%= link_to "Login", '/', class: "ui primary button"%>
       <% end %>
     </header>
     <%= yield %>
