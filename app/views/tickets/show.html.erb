@@ -7,7 +7,7 @@
 
 <div class = "form_search">
     <div class="ui list">
-            <table>
+            <table class="table_text">
                 <tr><td><div class = "item"><i class="users icon"></i></td><td><div class="content">Passenger: <%= @ticket.passenger.full_name%></div></div></td></tr>
                 <tr><td><div class = "item"><i class="exchange icon"></i></td><td><div class="content">Status: <%= @ticket.status%></div></div></td></tr>
                 <tr><td><div class = "item"><i class="plane icon"></i></td><td><div class="content">Airline: <%= @ticket.flight.airline.name%></div></div></td></tr>
@@ -23,8 +23,8 @@
 
     <table>
         <tr>
-            <th> <%= button_to "Change Ticket", edit_ticket_path(@ticket), method: "get" %></th> 
-            <th><%= button_to "Cancel Ticket", ticket_path(@ticket), method: "delete" %></th>
+            <th> <%= button_to "Change Ticket", edit_ticket_path(@ticket), method: "get", class: "ui primary button" %></th> 
+            <th><%= button_to "Cancel Ticket", ticket_path(@ticket), method: "delete", class: "ui primary button" %></th>
         </tr>
     </table>
 </div>

@@ -1,16 +1,61 @@
-<div class = "form_search ">
-    <h4>Search Flights by City</h4>
-        <%= form_tag(new_ticket_path, method: :get) do %>
-            <%= text_field_tag(:search, params[:search]) %>
-            <%= submit_tag ("Search") %>
-        <% end %>
-        <br>
-        <div class="update">
-            <% if flash[:notice] %>
-                <%= flash[:notice] %>
-            <% end %>
+<div class = "ui placeholder segment">
+    <div class="ui two column very relaxed stackable grid">
+        <div class="column">
+            <div class= "ui form">
+                <%= form_tag(new_ticket_path, method: :get) do %>
+                    <div class="field">
+                    <%= label_tag "Search Flights by City" %>
+                        <div class="ui left icon input">   
+                            <%= text_field_tag(:search, params[:search]) %>
+                            <i class="search icon"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <%= submit_tag ("Search"), class: "ui blue submit button" %>
+                    </div>
+                    <div class="update">
+                        <% if flash[:notice] %>
+                            <%= flash[:notice] %>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
         </div>
+        <div class="middle aligned column">    
+            <div class= "ui form"> 
+                <%= form_for @ticket do |f| %>
+                <div class="field">
+                    <i class="ticket alternate icon"></i>   
+                    <%= f.label :flight %>
+                    <%= f.collection_select :flight_id, @flights, :id, :flight_no %>
+                </div>
+                <div class="field">
+                    <i class="suitcase icon"></i>
+                    <%= f.label :number_of_bags %>
+                    <%= f.number_field :number_of_bags, value: 2 %>
+                </div>
+                <div class="field">
+                    <%= f.hidden_field :passenger_id, value: session[:passenger_id] %>
+                <div>*First two bags fly free!</div>
+                </div>
+                <div>
+                    <%= f.submit class: "ui blue submit button" %>
+                </div>
+                <% end %>
+            </div>
+        </div>  
     </div>
+    <div class="ui vertical divider">
+        Or
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div class="ui center aligned grid">
 <table class="ui celled collapsing table">
@@ -43,24 +88,3 @@
 <br>
 
 <h3 class="pages"><%= paginate @flights %></h3>
-
-<table class ="form">
-    <%= form_for @ticket do |f| %>
-        <tr>
-            <td><%= f.label :flight %></td>
-            <td><%= f.collection_select :flight_id, @flights, :id, :flight_no %></td>
-        </tr>
-        <tr>
-            <td><%= f.label :number_of_bags %></td>
-            <td><%= f.number_field :number_of_bags, value: 2 %></td>
-        </tr>
-            <td></td>
-            <td><div>*First two bags fly free!</div></td>
-        <tr>
-            <td><%= f.hidden_field :passenger_id, value: session[:passenger_id] %></td>
-        </tr>
-        <tr>
-            <td><%= f.submit %></td>
-        </tr>
-    <% end %>
-</table>

@@ -3,7 +3,7 @@ class FlightsController < ApplicationController
 
     def index
         @sorted_flights = Flight.upcoming_flights
-        @flights= Kaminari.paginate_array(@sorted_flights).page(params[:page]).per(20)
+        @flights= Kaminari.paginate_array(@sorted_flights).page(params[:page]).per(15)
     end
     
     def show 
