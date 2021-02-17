@@ -83,3 +83,7 @@ body{
 .table {
     font-size: 20px;
 }
+
+.inner {
+    margin-left: 50px;
+  }

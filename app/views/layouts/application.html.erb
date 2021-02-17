@@ -18,7 +18,7 @@
       <% if logged_in? %>
         <%= link_to "Home", passenger_path(session[:passenger_id]), class: "ui primary button" %> <%= link_to "Flights", flights_path, class: "ui primary button" %><%= link_to 'Purchase Ticket', new_ticket_path, class: "ui primary button" %> <%= link_to 'Logout', logout_path, class: "ui red button"%>
       <% elsif employee_logged_in? %>
-        <%= link_to "Home", employee_path(session[:employee_id]), class: "ui primary button" %> <%= link_to "Flights", flights_path, class: "ui primary button" %> <%= link_to 'Logout', logout_path, class: "ui red button"%>
+        <%= link_to "Home", employee_path(session[:employee_id]), class: "ui primary button" %> <%= link_to "Airline", airline_path(session[:employee_id]), class: "ui primary button" %> <%= link_to "Flights", flights_path, class: "ui primary button" %> <%= link_to 'Logout', logout_path, class: "ui red button"%>
       <% else %>
         <%= link_to "Home", '/', class: "ui primary button"  %>  <%= link_to "Flights", flights_path, class: "ui primary button" %> <%= link_to "Login", '/', class: "ui primary button"%>
       <% end %>

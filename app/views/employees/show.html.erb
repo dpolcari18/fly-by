@@ -1,1 +1,32 @@
-Employee!
+<div class="heading secondary-heading"> Welcome <%= @employee.name %> </div>
+
+
+<div class="inner">
+    <div class="ui card">
+        <div class="image">
+            <%= image_tag(src="sara.jpg") %>
+        </div>
+        <div class="content">
+            <a class="header"><%= @employee.name %></a>
+            <div class="meta">
+            <span class="date">Joined in <%= @employee.created_at.strftime("%Y") %></span>
+            </div>
+            <div>
+            <%= @employee.name %> is an outstanding Marketing Manager!
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="inner">
+    <div class="ui vertical menu">
+        <a class="item">
+            <h4 class="ui header">Tenure</h4>
+            <p><%= "Thanks for being an employee for #{@employee.tenure} days!" %></p>
+        </a>
+        <a class="item">
+            <h4 class="ui header">Next Flight</h4>
+            <p><%= "#{@employee.airline.name}'s next flight is #{@employee.next_flight.flight_no} from #{@employee.next_flight.origin} to #{@employee.next_flight.destination} in #{@employee.time_until_next_departure} hrs" %></p>
+        </a>
+    </div>
+</div>

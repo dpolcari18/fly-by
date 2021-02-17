@@ -7,6 +7,7 @@
     <table class="ui celled collapsing table">
         <thead>
                 <tr>
+                    <th>Ariline</th>
                     <th>Flight No.</th>
                     <th>Origin</th>
                     <th>Departure Date</th>
@@ -20,6 +21,7 @@
         </thead>
         <% @flights.each do |flight| %>
             <tr>
+                <td><%= flight.airline.name %></td>
                 <td><%= flight.flight_no %></td>
                 <td><%= flight.origin %></td>
                 <td><%= flight.departure.strftime("%m/%d/%y") %></td>

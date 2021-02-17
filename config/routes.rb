@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :employees
+  resources :employees, only: [:show]
   resources :tickets, only: [:show, :destroy, :new, :create, :edit, :update]
   resources :flights, only: [:index, :show]
-  resources :airlines
+  resources :airlines, only: [:show]
   resources :passengers, only: [:show, :new, :create]
   get 'logout' => 'sessions#destroy'
   resource :sessions, only: [:new, :create]
