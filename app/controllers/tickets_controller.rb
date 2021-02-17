@@ -10,12 +10,15 @@ class TicketsController < ApplicationController
     def new
         @ticket = Ticket.new
         if !params[:search] or params[:search] == ""
-            @flights = Flight.upcoming_flights
+            @sorted_flights = Flight.upcoming_flights
+            @flights= Kaminari.paginate_array(@sorted_flights).page(params[:page]).per(20)
         else
-            @flights = Flight.search(params[:search])
-            @flights = @flights.sort_by {|flight| flight.departure}.select{|f| f.departure >= Time.now}
+            @searched_flights = Flight.search(params[:search])
+            @searched_flights = @searched_flights.sort_by {|flight| flight.departure}.select{|f| f.departure >= Time.now}
+            @flights = Kaminari.paginate_array(@searched_flights).page(params[:page]).per(20)
             if @flights == []
-                @flights = Flight.upcoming_flights
+                @sorted_flights = Flight.upcoming_flights
+                @flights= Kaminari.paginate_array(@sorted_flights).page(params[:page]).per(20)
                 flash.now[:notice] = "Sorry we couldn't find any flights matching this city. Please try again."
             end
         end

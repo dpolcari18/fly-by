@@ -73,3 +73,9 @@ body{
     height: auto;
     z-index: -1;
 }
+
+.pages {
+    margin: auto;
+    width: 20%;
+    background: white;
+}

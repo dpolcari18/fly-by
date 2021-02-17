@@ -1,9 +1,11 @@
+require 'pry'
 class FlightsController < ApplicationController
 
     def index
-        @flights = Flight.upcoming_flights
+        @sorted_flights = Flight.upcoming_flights
+        @flights= Kaminari.paginate_array(@sorted_flights).page(params[:page]).per(20)
     end
-
+    
     def show 
         @flight = Flight.find_by(id: params[:id])
     end
