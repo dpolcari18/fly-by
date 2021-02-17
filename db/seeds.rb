@@ -31,7 +31,6 @@ employee2 = Employee.create(airline_id: airline2.id, name: "Robert", username: "
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'flight_passengers.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-    # binding.pry
     f = Flight.new
     f.airline_id = Airline.all.sample(1)[0].id
     f.origin = row['Flying_From']
@@ -39,7 +38,6 @@ csv.each do |row|
     year = row['Scheduled_Departure_From_Start_City'].to_datetime.year
     case year
     when 2017
-        # binding.pry
         f.departure = row['Scheduled_Departure_From_Start_City'].to_datetime + 1460
         f.arrival = row['Scheduled_Arrival_To_Destination'].to_datetime + 1460
     when 2018
