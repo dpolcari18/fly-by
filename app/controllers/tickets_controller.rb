@@ -61,7 +61,8 @@ class TicketsController < ApplicationController
             Flight.reindex
             @flights = Flight.search(params[:origin])  
         else
-            @flights = Flight.upcoming_flights
+            @sorted_flights = Flight.upcoming_flights
+            @flights= Kaminari.paginate_array(@sorted_flights).page(params[:page]).per(15)
         end
     end
     
