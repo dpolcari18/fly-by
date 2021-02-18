@@ -6,4 +6,7 @@ class FlightsController < ApplicationController
         @flights= Kaminari.paginate_array(@sorted_flights).page(params[:page]).per(15)
     end
 
+    def show
+        @flight = Flight.find_by(id: params[:id]) 
+    end
 end

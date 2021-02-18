@@ -6,7 +6,7 @@ class Ticket < ApplicationRecord
 
   before_create :create_ticket_number
 
-  validates :flight_id, uniqueness: true
+  validates_uniqueness_of :flight_id, scope: :passenger_id, message: "Error - You cannot purchase more than one ticket per flight"
 
   def change_ticket_status
     if self.flight.arrival < Time.now.to_datetime

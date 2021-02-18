@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     before_action :current_passenger, only: [:logged_in?, :require_logged_in]
     before_action :current_employee, only: [:employee_logged_in?, :require_employee_logged_in]
 
-    helper_method :company_logo
+    helper_method :company_logo, :company_twitter
 
     def current_passenger
         @passenger = (Passenger.find_by(id: session[:passenger_id]) || Passenger.new)
@@ -44,5 +44,10 @@ class ApplicationController < ActionController::Base
         when "Alaska"
             "alaska.jpg"
         end
+    end
+
+    def company_twitter
+        airline = Airline.find_by(id: session[:employee_id])
+        airline.twitter
     end
 end

@@ -18,11 +18,11 @@ Airline.destroy_all
 passenger1 = Passenger.create(first_name: "Hanna", last_name: "Mulugeta", username: "hmulugeta", password: "123456", age: 28, email: "dpolcari18@gmail.com")
 passenger2 = Passenger.create(first_name: "David", last_name: "Polcari", username: "dpolcari", password: "123456", age: 28, email: "hannabmulugeta@gmail.com")
 
-airline1 = Airline.create(name: "United", code: "UA")
-airline2 = Airline.create(name: "Delta", code: "DL")
-airline3 = Airline.create(name: "Southwest", code: "SW")
-airline4 = Airline.create(name: "American", code: "AA")
-airline5 = Airline.create(name: "Alaska", code: "AS")
+airline1 = Airline.create(name: "United", code: "UA", twitter: "https://twitter.com/united")
+airline2 = Airline.create(name: "Delta", code: "DL", twitter: "https://twitter.com/Delta")
+airline3 = Airline.create(name: "Southwest", code: "SW", twitter: "https://twitter.com/SouthwestAir")
+airline4 = Airline.create(name: "American", code: "AA", twitter: "https://twitter.com/AmericanAir")
+airline5 = Airline.create(name: "Alaska", code: "AS", twitter: "https://twitter.com/AlaskaAir")
 
 
 employee1 = Employee.create(airline_id: airline1.id, name: "Sara", username: "Sara12", password: "password")

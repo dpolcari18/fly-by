@@ -21,6 +21,7 @@
         </thead>
         <% @flights.each do |flight| %>
             <tr>
+                <td><a href="<%= flight.airline.twitter %>" target="_blank"><i class="twitter icon"></i><%= flight.airline.name %></a></td>
                 <td><%= flight.airline.name %></td>
                 <td><%= flight.flight_no %></td>
                 <td><%= flight.origin %></td>

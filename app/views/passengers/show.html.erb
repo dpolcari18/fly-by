@@ -1,11 +1,47 @@
 
 <div class="heading secondary-heading"> Welcome <%= @passenger.full_name %> </div>
 
-<div class = "form">
-    Fun Facts!
-    <div>Favorite Destination: <%= @passenger.favorite_destination %></div>
-    <div>Total Flight Hours: <%= @passenger.total_flight_hours %> hours</div>
+<div class="ui grid">
+    <div class="five wide column">
+    </div>
+        <div class="ui statistics">
+             <div class="six wide column">
+                <div class="statistic">
+                    <div class="text value">
+                    <i class="map icon"></i><%= @passenger.favorite_destination %>
+                    </div>
+                    <div class="label">
+                    Favorite Destination
+                    </div>
+                </div>
+            </div>
+             <div class="six wide column">
+                <div class="statistic">
+                    <div class="text value">
+                    <i class="clock icon"></i><%= @passenger.total_flight_hours %>
+                    </div>
+                    <div class="label">
+                    Total Flight Hours
+                    </div>
+                </div>
+            </div>
+             <div class="six wide column">
+                <div class="statistic">
+                    <div class="value">
+                    <i class="plane icon"></i> <%= @passenger.flights.count%>
+                    </div>
+                    <div class="label">
+                    Flights
+                    </div>
+                </div>
+            </div>
+            <div class="one wide column">
+            </div>
+        </div>
 </div>
+<br>
+<br>
+<br>
 
 <div class = "upcoming-flight"> Upcoming Flights</div>
 
@@ -24,7 +60,7 @@
         </tr>
         <% @passenger.upcoming_status.each do |ticket| %>
             <tr>
-                <td><%= ticket.flight.airline.name %></td>
+                <td><a href="<%= ticket.flight.airline.twitter %>" target="_blank"><i class="twitter icon"></i><%= ticket.flight.airline.name %></a></td>
                 <td><%= ticket.flight.flight_no %></td>
                 <td><%= link_to ticket.ticket_number, ticket_path(ticket) %></td>
                 <td><%= ticket.flight.origin %></td>
@@ -55,7 +91,7 @@
         </tr>
         <% @passenger.closed_status.each do |ticket| %>
             <tr>
-                <td><%= ticket.flight.airline.name %></td>
+                <td><a href="<%= ticket.flight.airline.twitter %>" target="_blank"><i class="twitter icon"></i><%= ticket.flight.airline.name %></a></td>
                 <td><%= ticket.flight.flight_no %></td>
                 <td><%= link_to ticket.ticket_number, ticket_path(ticket) %></td>
                 <td><%= ticket.flight.origin %></td>

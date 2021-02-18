@@ -15,6 +15,10 @@ class Flight < ApplicationRecord
     (self.tickets.count)
   end
 
+  def revenue
+    (self.seats_sold * self.price)/(self.number_of_seats * self.price)*100
+  end
+
   def update_price
     if self.departure.wday == 5 or self.departure.wday == 6
       if self.departure.strftime("%P") == "AM"
@@ -29,6 +33,10 @@ class Flight < ApplicationRecord
         self.price
       end
     end
+  end
+
+  def flight_hours
+    (self.arrival - self.departure)/3600
   end
 
   def self.upcoming_flights

@@ -1,0 +1,46 @@
+<div class="heading secondary-heading"> Flight Number: <%= @flight.flight_no %> </div>
+<div class="heading secondary-heading"> Origin: <%= @flight.origin %> </div>
+<div class="heading secondary-heading"> Destination: <%= @flight.destination %> </div>
+
+<div class="ui four statistics">
+  <div class="statistic">
+    <div class="value">
+      <%= @flight.passengers.count %>
+    </div>
+    <div class="label">
+      No. of Passengers
+    </div>
+  </div>
+  <div class="statistic">
+    <div class="value">
+      <%= @flight.remaining_seats %>
+    </div>
+    <div class="label">
+      Remaining Seats
+    </div>
+  </div>
+  <div class="statistic">
+    <div class="value">
+      <%= @flight.flight_hours %>
+    </div>
+    <div class="label">
+      Flight Hours
+    </div>
+  </div>
+</div>
+
+
+Revenue
+<div class="ui grid">
+    <div class="three wide column">
+    </div>
+    <div class="six wide column">
+        <div class="ui progress">
+            <div class="bar">
+                <div class="progress"><%= @flight.revenue %></div>
+            </div>
+        </div>
+    </div>
+     <div class="three wide column">
+    </div>
+</div>

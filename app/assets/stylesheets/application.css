@@ -87,3 +87,8 @@ body{
 .inner {
     margin-left: 50px;
   }
+
+.funfact {
+    margin: auto;
+    width: 20%
+}

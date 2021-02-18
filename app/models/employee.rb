@@ -2,7 +2,7 @@ class Employee < ApplicationRecord
   belongs_to :airline
 
   def tenure
-    ((Time.now - self.created_at)/86400).to_i
+    ((Time.now - self.created_at)/3600).to_i
   end
 
   def next_flight
