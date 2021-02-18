@@ -33,4 +33,9 @@ class Airline < ApplicationRecord
     def utilization_count
         self.utilization.count
     end
+
+    def frequent_flier
+        passengers = self.flights.map {|flight| flight.passengers}.flatten
+        passengers.max_by {|passenger| passengers.count(passenger)}.full_name
+    end
 end

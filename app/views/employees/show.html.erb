@@ -2,11 +2,11 @@
 <div class="ui grid">
   <div class="one wide column">
   </div>
-  <div class="eight wide column">
+  <div class="ten wide column">
         <div class="ui statistics">
             <div class="statistic">
                 <div class="value">
-                <%= @employee.airline.get_passengers.count %>
+                <i class="users icon"></i><%= @employee.airline.get_passengers.count %>
                 </div>
                 <div class="label">
                 Passengers
@@ -36,9 +36,17 @@
                 Average Utilization
                 </div>
             </div>
+            <div class="statistic">
+                <div class="text value">
+                <i class="user icon"></i><%= @employee.airline.frequent_flier %>
+                </div>
+                <div class="label">
+                Frequent Flier
+                </div>
+            </div>
     </div>
   </div>
-  <div class="two wide column">
+  <div class="one wide column">
   </div>
 </div>
 
