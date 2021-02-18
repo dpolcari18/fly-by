@@ -17,7 +17,7 @@
                 <td><%= passenger.age %></td>
                 <td><%= passenger.email %></td>
                 <td><%= passenger.flights.select {|flight| flight.airline.name == @airline.name}.count %></td>
-                <td><%= passenger.flights.select {|flight| flight.airline.name == @airline.name}.sum {|flight| flight.price } %></td>
+                <td>$<%= passenger.flights.select {|flight| flight.airline.name == @airline.name}.sum {|flight| flight.price } %></td>
             </tr>
         <% end %>
     </table>
