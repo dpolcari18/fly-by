@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
     before_action :require_employee_logged_in, only: [:show]
-    before_action :authenticate_employee, only: [:show]
-    
+    before_action :authenticate_employee, only: [:show]    
+
     def show
         @employee = Employee.find_by(id: params[:id])
     end

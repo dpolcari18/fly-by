@@ -12,4 +12,8 @@ class Employee < ApplicationRecord
   def time_until_next_departure
     ((self.next_flight.departure - Time.now)/3600).to_i
   end
+
+  def profile_picture 
+    (src="#{self.name.downcase}.jpg")
+  end
 end
