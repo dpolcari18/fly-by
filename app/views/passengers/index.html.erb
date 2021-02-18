@@ -1,0 +1,24 @@
+<div class="heading secondary-heading"> <%= @employee.airline.name %>'s Passenger List </div>
+
+<div class="ui center aligned grid">
+    <table class="ui celled collapsing table">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Number of Flights</th>
+            <th>Total Spend</th>
+        </tr>
+        <% @airline.get_passengers.each do |passenger| %>
+            <tr>
+                <td><%= passenger.first_name %></td>
+                <td><%= passenger.last_name %></td>
+                <td><%= passenger.age %></td>
+                <td><%= passenger.email %></td>
+                <td><%= passenger.flights.select {|flight| flight.airline.name == @airline.name}.count %></td>
+                <td><%= passenger.flights.select {|flight| flight.airline.name == @airline.name}.sum {|flight| flight.price } %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>

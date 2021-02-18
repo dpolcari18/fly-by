@@ -3,6 +3,13 @@ class PassengersController < ApplicationController
     before_action :require_logged_in, only: [:show]
     before_action :find_passenger, only: [:authenticate_passenger, :show]
     before_action :authenticate_passenger, only: [:show]
+    before_action :require_employee_logged_in, only: [:index]
+    before_action :authenticate_employee, only: [:index]
+
+    def index
+        @employee = Employee.find_by(id: session[:employee_id])
+        @airline = @employee.airline
+    end
 
     def show 
     end
@@ -36,6 +43,12 @@ class PassengersController < ApplicationController
     def authenticate_passenger
         unless session[:passenger_id] == @passenger.id
             redirect_to passenger_path(session[:passenger_id])
+        end
+    end
+
+    def authenticate_employee
+        unless session[:employee_id] == @employee.id
+            redirect_to employee_path(session[:employee_id])
         end
     end
 end
