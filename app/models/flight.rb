@@ -11,6 +11,10 @@ class Flight < ApplicationRecord
     (self.number_of_seats)-(self.tickets.count)
   end
 
+  def seats_sold
+    (self.tickets.count)
+  end
+
   def update_price
     if self.departure.wday == 5 or self.departure.wday == 6
       if self.departure.strftime("%P") == "AM"
