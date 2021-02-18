@@ -1,7 +1,8 @@
 require 'pry'
 class FlightsController < ApplicationController
     before_action :require_employee_logged_in, only: [:show, :new, :create]
-    before_action :authenticate_employee, only: [:show, :new, :create]    
+    before_action :find_flight, only: [:show, :destroy, :authenticate_employee]    
+    before_action :authenticate_employee, only: [:show, :new, :create]
 
     def new
         @flight = Flight.new
@@ -25,7 +26,11 @@ class FlightsController < ApplicationController
     end
 
     def show
-        @flight = Flight.find_by(id: params[:id]) 
+    end
+
+    def destroy
+        @flight.destroy
+        redirect_to employee_path(session[:employee_id])
     end
     
     private
@@ -38,5 +43,9 @@ class FlightsController < ApplicationController
 
     def flight_params
         params.require(:flight).permit(:origin, :destination, :departure, :arrival, :price, :number_of_seats, :flight_no, :airline_id)
+    end
+
+    def find_flight
+        @flight = Flight.find_by(id: params[:id])
     end
 end

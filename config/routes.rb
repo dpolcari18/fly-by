@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :employees, only: [:show]
   resources :tickets, only: [:show, :destroy, :new, :create, :edit, :update]
-  resources :flights, only: [:index, :show, :new, :create]
+  resources :flights, only: [:index, :show, :new, :create, :destroy]
   resources :airlines, only: [:show]
   resources :passengers, only: [:show, :new, :create, :index]
   get 'logout' => 'sessions#destroy'

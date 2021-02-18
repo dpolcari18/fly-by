@@ -1,8 +1,9 @@
 class Flight < ApplicationRecord
   searchkick
-  
+
+
   belongs_to :airline
-  has_many :tickets
+  has_many :tickets, dependent: :destroy
   has_many :passengers, through: :tickets
 
   before_create :update_price

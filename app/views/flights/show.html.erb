@@ -2,6 +2,8 @@
 <div class="heading secondary-heading"> Origin: <%= @flight.origin %> </div>
 <div class="heading secondary-heading"> Destination: <%= @flight.destination %> </div>
 
+<th><%= button_to "Cancel Flight", flight_path(@flight), method: "delete", class: "ui primary button" %></th>
+
 <div class="ui five statistics">
   <div class="statistic">
   </div>
