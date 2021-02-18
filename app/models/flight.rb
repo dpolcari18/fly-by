@@ -16,7 +16,7 @@ class Flight < ApplicationRecord
   end
 
   def revenue
-    (self.seats_sold * self.price)/(self.number_of_seats * self.price)*100
+    ((self.seats_sold * self.price)/(self.number_of_seats * self.price)*100).round(2)
   end
 
   def update_price
