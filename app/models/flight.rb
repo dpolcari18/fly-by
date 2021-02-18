@@ -7,6 +7,12 @@ class Flight < ApplicationRecord
 
   before_create :update_price
 
+  validates_uniqueness_of :flight_no, presence: true
+  validates_presence_of :origin, presence: true
+  validates_presence_of :departure, presence: true
+  validate :arrival_after_departure
+  validate :departure_date
+
   def remaining_seats
     (self.number_of_seats)-(self.tickets.count)
   end
@@ -45,6 +51,24 @@ class Flight < ApplicationRecord
 
   def self.sort_flights
     Flight.all.sort_by {|flight| flight.departure}
+  end
+
+  private
+
+  def arrival_after_departure
+    return if departure.blank? || arrival.blank?
+ 
+    if arrival < departure
+      errors.add(:arrival, "must be later than departure") 
+    end 
+  end
+
+  def departure_date
+    return if departure.blank?
+    
+    if departure.to_date < (Time.now.to_date + 7)
+      errors.add(:departure, "must be at least 1 week from now") 
+    end 
   end
 
 end

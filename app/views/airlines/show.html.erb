@@ -1,6 +1,12 @@
 <h2 class="heading secondary-heading">Upcoming <%= @airline.name %> Flights</h2>
 <br>
 <br>
+<div class="ui center aligned grid">
+    <%= link_to "Create Flight", new_flight_path, class: "ui primary button" %>
+</div>
+<br>
+<br>
+<br>
 <br>
 <div class="ui center aligned grid">
     <table class="ui celled collapsing table">

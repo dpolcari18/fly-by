@@ -20,6 +20,7 @@ body{
 .error {
     margin: 25px;
     color: red;
+    font-size: 20px
 }
 
 .primary-heading {

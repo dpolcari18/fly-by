@@ -1,0 +1,54 @@
+<div class="heading secondary-heading"> Create New Flight </div>
+<div class="error">
+    <ul class="ui list">
+        <% if flash[:error] %>
+            <% flash[:error].each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        <% end %>
+    </ul>
+</div>
+
+<%= form_for @flight do |f| %>
+    <div class="field">
+        <i class="ticket alternate icon"></i>   
+        <%= f.label :origin %>
+        <%= f.text_field :origin %>
+    </div>
+    <div class="field">
+        <i class="suitcase icon"></i>
+        <%= f.label :destination %>
+        <%= f.text_field :destination %>
+    </div>
+    <div class="field">
+        <i class="suitcase icon"></i>
+        <%= f.label :departure %>
+        <%= f.datetime_field :departure %>
+    </div>
+    <div class="field">
+        <i class="suitcase icon"></i>
+        <%= f.label :arrival %>
+        <%= f.datetime_field :arrival %>
+    </div>
+    <div class="field">
+        <i class="suitcase icon"></i>
+        <%= f.label :price %>
+        <%= f.number_field :price, min: 1 %>
+    </div>
+    <div class="field">
+        <i class="suitcase icon"></i>
+        <%= f.label :number_of_seats %>
+        <%= f.number_field :number_of_seats, min: 20 %>
+    </div>
+    <div class="field">
+        <i class="suitcase icon"></i>
+        <%= f.label :flight_no %>
+        <%= f.text_field :flight_no %>
+    </div>
+    <div class="field">
+        <%= f.hidden_field :airline_id, value: session[:employee_id] %>
+    </div>
+    <div>
+        <%= f.submit class: "ui blue submit button" %>
+    </div>
+<% end %>
