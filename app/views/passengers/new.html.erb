@@ -1,33 +1,38 @@
 
 <div class="heading secondary-heading"> Sign Up Form</div>
 
-<table class="ui segment form_search">
-    <%= form_for @passenger, html: {class: "ui inverted form"} do |f| %>
-    <div class="two fields">
-        <div class="field">
-            <tr><td>First Name:</td> <td><%= f.text_field :first_name %></td>
-        </div>
-        <div class="field">
-            <td>Last Name:</td> <td><%= f.text_field :last_name %></td></tr>
-        </div>
+<div class="ui grid">
+    <div class="four wide column">
     </div>
-    <div class="two fields">
-        <div class="field">
-            <tr><td>User Name:</td> <td><%= f.text_field :username %></td>
-        </div>
-        <div class="field">
-            <td>Password:</td> <td><%= f.password_field :password %></td></tr>
-        </div>
+    <div class="five wide column">
+        <table class="ui segment form_search">
+            <%= form_for @passenger, html: {class: "ui inverted form"} do |f| %>
+            <div class="two fields">
+                <div class="field">
+                    <tr><td>First Name:</td> <td><%= f.text_field :first_name %></td>
+                </div>
+                <div class="field">
+                    <td>Last Name:</td> <td><%= f.text_field :last_name %></td></tr>
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <tr><td>User Name:</td> <td><%= f.text_field :username %></td>
+                </div>
+                <div class="field">
+                    <td>Password:</td> <td><%= f.password_field :password %></td></tr>
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <tr><td>Age:</td> <td><%= f.number_field :age %></td>
+                </div>
+                <tr><td><%= f.submit "Create Passenger", class: "ui primary button" %></td></tr>
+
+            <% end %>
+        </table>
     </div>
-     <div class="two fields">
-        <div class="field">
-            <tr><td>Age:</td> <td><%= f.number_field :age %></td>
-        </div>
-        <tr><td><%= f.submit "Create Passenger", class: "ui primary button" %></td></tr>
-
-    <% end %>
-</table>
-
+</div>
 <div class="error">
     <% if flash[:error] %>
         <h3 style = 'color: red' >ERROR</h3>
