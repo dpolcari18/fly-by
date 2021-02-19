@@ -15,11 +15,11 @@ class Passenger < ApplicationRecord
     end
     
     def closed_status
-        self.tickets.select {|ticket| ticket.status == "Closed"}
+        self.tickets.select {|ticket| ticket.status == "Closed"}.sort_by {|ticket| ticket.flight.departure}.reverse
     end
     
     def upcoming_status
-        self.tickets.select {|ticket| ticket.status != "Closed"}
+        self.tickets.select {|ticket| ticket.status != "Closed"}.sort_by {|ticket| ticket.flight.departure}
     end
 
     def favorite_destination
