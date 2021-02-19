@@ -45,63 +45,74 @@
 
 <div class = "upcoming-flight"> Upcoming Flights</div>
 
-<div class="ui center aligned grid">
-    <table class="ui celled collapsing table">
-        <tr>
-            <th>Airline</th>
-            <th>Flight Number</th>
-            <th>Ticket Number</th>
-            <th>Origin</th>
-            <th>Departure Date</th>
-            <th>Time</th>
-            <th>Destination</th>
-            <th>Arrival Date</th>
-            <th>Time</th>
-        </tr>
-        <% @passenger.upcoming_status.each do |ticket| %>
+<% if @passenger.upcoming_status != [] %>
+    <div class="ui center aligned grid">
+        <table class="ui celled collapsing table">
             <tr>
-                <td><a href="<%= ticket.flight.airline.twitter %>" target="_blank"><i class="twitter icon"></i><%= ticket.flight.airline.name %></a></td>
-                <td><%= ticket.flight.flight_no %></td>
-                <td><%= link_to ticket.ticket_number, ticket_path(ticket) %></td>
-                <td><%= ticket.flight.origin %></td>
-                <td><%= ticket.flight.departure.strftime("%m/%d/%y") %></td>
-                <td><%= ticket.flight.departure.strftime("%I:%M:%S %p") %></td>
-                <td><%= ticket.flight.destination %></td>
-                <td><%= ticket.flight.arrival.strftime("%m/%d/%y") %></td>
-                <td><%= ticket.flight.arrival.strftime("%I:%M:%S %p") %></td>
+                <th>Airline</th>
+                <th>Flight Number</th>
+                <th>Ticket Number</th>
+                <th>Origin</th>
+                <th>Departure Date</th>
+                <th>Time</th>
+                <th>Destination</th>
+                <th>Arrival Date</th>
+                <th>Time</th>
             </tr>
-        <% end %>
-    </table>
-</div>
+            <% @passenger.upcoming_status.each do |ticket| %>
+                <tr>
+                    <td><a href="<%= ticket.flight.airline.twitter %>" target="_blank"><i class="twitter icon"></i><%= ticket.flight.airline.name %></a></td>
+                    <td><%= ticket.flight.flight_no %></td>
+                    <td><%= link_to ticket.ticket_number, ticket_path(ticket) %></td>
+                    <td><%= ticket.flight.origin %></td>
+                    <td><%= ticket.flight.departure.strftime("%m/%d/%y") %></td>
+                    <td><%= ticket.flight.departure.strftime("%I:%M:%S %p") %></td>
+                    <td><%= ticket.flight.destination %></td>
+                    <td><%= ticket.flight.arrival.strftime("%m/%d/%y") %></td>
+                    <td><%= ticket.flight.arrival.strftime("%I:%M:%S %p") %></td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+<% else %>
+     <div class="ui center aligned grid">
+        <h3><%= link_to "Book ", new_ticket_path %> a flight to see your upcoming flights!</h3>
+    </div>
+<% end %>
 
 <div class = "upcoming-flight"> Past Flights</div>
 
-<div class="ui center aligned grid">
-    <table class="ui celled collapsing table">
-        <tr>
-            <th>Airline</th>
-            <th>Flight Number</th>
-            <th>Ticket Number</th>
-            <th>Origin</th>
-            <th>Departure Date</th>
-            <th>Time</th>
-            <th>Destination</th>
-            <th>Arrival Date</th>
-            <th>Time</th>
-        </tr>
-        <% @passenger.closed_status.each do |ticket| %>
+<% if @passenger.closed_status != [] %>
+    <div class="ui center aligned grid">
+        <table class="ui celled collapsing table">
             <tr>
-                <td><a href="<%= ticket.flight.airline.twitter %>" target="_blank"><i class="twitter icon"></i><%= ticket.flight.airline.name %></a></td>
-                <td><%= ticket.flight.flight_no %></td>
-                <td><%= link_to ticket.ticket_number, ticket_path(ticket) %></td>
-                <td><%= ticket.flight.origin %></td>
-                <td><%= ticket.flight.departure.strftime("%m/%d/%y") %></td>
-                <td><%= ticket.flight.departure.strftime("%I:%M:%S %p") %></td>
-                <td><%= ticket.flight.destination %></td>
-                <td><%= ticket.flight.arrival.strftime("%m/%d/%y") %></td>
-                <td><%= ticket.flight.arrival.strftime("%I:%M:%S %p") %></td>
+                <th>Airline</th>
+                <th>Flight Number</th>
+                <th>Ticket Number</th>
+                <th>Origin</th>
+                <th>Departure Date</th>
+                <th>Time</th>
+                <th>Destination</th>
+                <th>Arrival Date</th>
+                <th>Time</th>
             </tr>
-        <% end %>
-    </table>
-</div>
-
+            <% @passenger.closed_status.each do |ticket| %>
+                <tr>
+                    <td><a href="<%= ticket.flight.airline.twitter %>" target="_blank"><i class="twitter icon"></i><%= ticket.flight.airline.name %></a></td>
+                    <td><%= ticket.flight.flight_no %></td>
+                    <td><%= link_to ticket.ticket_number, ticket_path(ticket) %></td>
+                    <td><%= ticket.flight.origin %></td>
+                    <td><%= ticket.flight.departure.strftime("%m/%d/%y") %></td>
+                    <td><%= ticket.flight.departure.strftime("%I:%M:%S %p") %></td>
+                    <td><%= ticket.flight.destination %></td>
+                    <td><%= ticket.flight.arrival.strftime("%m/%d/%y") %></td>
+                    <td><%= ticket.flight.arrival.strftime("%I:%M:%S %p") %></td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+<% else %>
+    <div class="ui center aligned grid">
+        <h3>You haven't completed any flights yet!</h3>
+    </div>
+<% end %>

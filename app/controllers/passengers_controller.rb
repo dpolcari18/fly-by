@@ -33,7 +33,7 @@ class PassengersController < ApplicationController
     private
 
     def passenger_params
-        params.require(:passenger).permit(:first_name, :last_name, :username, :password, :age)
+        params.require(:passenger).permit(:first_name, :last_name, :username, :password, :age, :email)
     end
     
     def find_passenger

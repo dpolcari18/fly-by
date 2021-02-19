@@ -27,6 +27,9 @@
                 <div class="field">
                     <tr><td>Age:</td> <td><%= f.number_field :age %></td>
                 </div>
+                <div class="field">
+                    <td>Email:</td> <td><%= f.text_field :email %></td></tr>
+                </div>
                 <tr><td><%= f.submit "Create Passenger", class: "ui primary button" %></td></tr>
 
             <% end %>

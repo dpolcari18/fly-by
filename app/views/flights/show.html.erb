@@ -2,14 +2,14 @@
 <div class="heading secondary-heading"> Origin: <%= @flight.origin %> </div>
 <div class="heading secondary-heading"> Destination: <%= @flight.destination %> </div>
 
-<th><%= button_to "Cancel Flight", flight_path(@flight), method: "delete", class: "ui primary button" %></th>
+<div class="inner"><%= button_to "Cancel Flight", flight_path(@flight), method: "delete", class: "ui primary button" %></div>
 
 <div class="ui five statistics">
   <div class="statistic">
   </div>
   <div class="statistic">
     <div class="value">
-      <%= @flight.passengers.count %>
+      <i class="users icon"></i><%= @flight.passengers.count %>
     </div>
     <div class="label">
       No. of Passengers
@@ -25,7 +25,7 @@
   </div>
   <div class="statistic">
     <div class="value">
-      <%= @flight.flight_hours.round(2) %>
+      <i class="clock outline icon"></i></i><%= @flight.flight_hours.round(2) %>
     </div>
     <div class="label">
       Flight Hours
@@ -52,7 +52,7 @@
     <div class="five wide column">
     </div>
     <div class="six wide column">
-        <div class="ui progress">
+        <div class="ui green progress">
             <div class="bar">
                 <div class="progress"><%= @flight.revenue %>%</div>
             </div>
