@@ -9,8 +9,8 @@ class Flight < ApplicationRecord
   before_create :update_price
 
   validates_uniqueness_of :flight_no, presence: true
-  validates_presence_of :origin, presence: true
-  validates_presence_of :departure, presence: true
+  validates_presence_of :origine
+  validates_presence_of :departure
   validate :arrival_after_departure
   validate :departure_date
 
