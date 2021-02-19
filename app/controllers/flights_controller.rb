@@ -1,4 +1,3 @@
-require 'pry'
 class FlightsController < ApplicationController
     before_action :require_employee_logged_in, only: [:show, :new, :create]
     before_action :find_flight, only: [:show, :destroy, :authenticate_employee]    
