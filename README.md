@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+---
+## Fly-By
 
-Things you may want to cover:
+Fly-by is a platform that allows users to find and purchase "flights" from multiple airlines while also allowing airlines to create and cancel "flights".
 
-* Ruby version
+---
+## Motivation
 
-* System dependencies
+This project was thought up as a way for my partner and I to practice CRUD actions in Ruby on Rails. We wanted to make something that was practical while giving us ample opportunity to practice our MVC design pattern. The end product is a multi-interface application with full CRUD actions for multiple tables.
 
-* Configuration
+---
+## Technology
 
-* Database creation
+* Ruby on Rails
+* Styling - Semantic UI
 
-* Database initialization
+---
+## Features 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Kaminari gem utilized for paginating search results
+* SearchKick gem implemented flex search feature
+* Full CRUD actions for flights and tickets
